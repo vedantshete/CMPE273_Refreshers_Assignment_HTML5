@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Entry</title>
+</head>
+
+<body>
+<p>Enter your name:</p><input type="text" id="n" /><br><br>
+<p>Enter your student id:</p><input type="text" id="id" /><br><br>
+<p>Enter your mobile number:</p><input type="text" id="mob" /><br><br>
+<button onclick="sub()">Submit</button><br><br>
+<p id="disp"></p>
+<p id="disp1"></p>
+<p id="disp2"></p>
+
+<script>
+function sub(){
+	if (typeof(Storage) !== "undefined"){
+	localStorage.setItem("name", document.getElementById("n").value);
+	localStorage.setItem("ident", document.getElementById("id").value);
+	localStorage.setItem("mobile", document.getElementById("mob").value);
+	document.getElementById("disp").innerHTML = "You entered Name= "+localStorage.getItem("name");
+	document.getElementById("disp1").innerHTML = "You entered Id= "+localStorage.getItem("ident");
+	document.getElementById("disp2").innerHTML = "You entered mobile number= "+localStorage.getItem("mobile");
+	}else{
+		document.getElementById("disp").innerHTML="No storage available.";
+	}
+	}
+
+</script>
+</body>
+</html>
